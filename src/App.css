@@ -1,0 +1,133 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-primary: #0B0C10;
+  --bg-secondary: #1F2833;
+  --text-primary: #FFFFFF;
+  --text-secondary: #C5C6C7;
+  --border-color: rgba(255, 255, 255, 0.1);
+  --accent-color: #FFFFFF;
+}
+
+/* Base styles */
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Selection color */
+::selection {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--text-primary);
+}
+
+/* Focus outline */
+:focus {
+  outline: 2px solid rgba(255, 255, 255, 0.2);
+  outline-offset: 2px;
+}
+
+/* Clean border effect */
+.border-clean {
+  border: 1px solid var(--border-color);
+}
+
+/* Theme specific classes */
+.theme-gradient {
+  background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+}
+
+/* Markdown content styling */
+.markdown-content {
+  @apply text-white;
+}
+
+.markdown-content pre {
+  @apply bg-[#1F2833] border border-white/10;
+}
+
+.markdown-content code {
+  @apply text-white;
+}
+
+.markdown-content blockquote {
+  @apply border-l-4 border-white/20 bg-white/5;
+}
+
+/* Message animations */
+.message-enter {
+  animation: messageSlide 0.3s ease forwards;
+}
+
+@keyframes messageSlide {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Loading animation */
+.loading-dots div {
+  animation: loadingBounce 0.8s infinite;
+}
+
+.loading-dots div:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.loading-dots div:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes loadingBounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+/* Typography */
+.prose {
+  @apply prose-headings:text-white prose-a:text-white prose-strong:text-white prose-code:text-white;
+}
+
+/* Mobile optimizations */
+@media (max-width: 640px) {
+  .glass {
+    backdrop-filter: blur(5px);
+  }
+} 
